@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang=”en”>
+
+<head>
+    <meta charset=”UTF-8″ />
+    <title>Document</title>
+    <script>
+        class Usuario {
+            constructor(nombre, apellido, libros, mascotas) {
+                this.nombre = nombre,
+                    this.apellido = apellido,
+                    this.libros = libros,
+                    this.mascotas = mascotas
+            }
+
+            getFullName() {
+                console.log(`${this.nombre} ${this.apellido}`);
+            }
+
+            addMascota(mascota) {
+                this.mascotas = [...this.mascotas, mascota];
+            }
+
+            getMascotas() {
+                console.log(`${this.mascotas.length}`);
+            }
+
+            addBook(book, autor) {
+                this.libros = [...this.libros, { nombre: book, autor: autor }];
+            }
+
+            getBooks() {
+                const booksFiltered = [];
+                this.libros.forEach(libro => {
+                    booksFiltered.push(libro.nombre);
+                });
+                return console.log(booksFiltered);
+            }
+        }
+
+        const mascotas = [];
+
+        const libros = [];
+
+        let usuario = new Usuario('Matias', 'Soto', libros, mascotas)
+
+        usuario.getFullName();
+
+        usuario.addMascota('Firulais');
+
+        usuario.addMascota('Theo');
+
+        usuario.getMascotas();
+
+        usuario.addBook('El señor de las moscas', 'William Golding');
+
+        usuario.addBook('Fundacion', 'Isaac Asimov');
+
+        usuario.getBooks();
+
+    </script>
+</head>
+
+<body> </body>
+
+</html>
