@@ -1,0 +1,15 @@
+{
+	"contenidoStr": "{\"name\":\"ejercicio\",\"version\":\"1.0.0\",\"description\":\"\",\"main\":\"fechayhora.js\",\"scripts\":{\"test\":\"echo \\\"Error: no test specified\\\" && exit 1\"},\"author\":\"Coderhouse\",\"license\":\"ISC\"}",
+	"contenidoObjeto": {
+		"name": "ejercicio",
+		"version": "1.0.0",
+		"description": "",
+		"main": "fechayhora.js",
+		"scripts": {
+			"test": "echo \"Error: no test specified\" && exit 1"
+		},
+		"author": "Coderhouse",
+		"license": "ISC"
+	},
+	"size": 1.5
+}

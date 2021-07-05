@@ -1,0 +1,8 @@
+[
+	{
+		"title": "Plasticola",
+		"price": 20,
+		"thumbnail": "https://docs.google.com/presentation/d/1Q1JQ_rnAnaa-hjeZgSrODZiUeqSvaJ2I_RFptPp1CY0/edit#slide=id.gb4c7753833_1_119",
+		"id": 1
+	}
+]
