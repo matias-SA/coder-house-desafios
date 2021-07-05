@@ -47,6 +47,8 @@ let arch = new Archivo('productos.txt');
 
 arch.guardar('Plasticola', 20.00, 'https://docs.google.com/presentation/d/1Q1JQ_rnAnaa-hjeZgSrODZiUeqSvaJ2I_RFptPp1CY0/edit#slide=id.gb4c7753833_1_119');
 
-arch.guardar('Jorgito', 20.58, 'https://docs.google.com/presentation/d/1Q1JQ_rnAnaa-hjeZgSrODZiUeqSvaJ2I_RFptPp1CY0/edit#slide=id.gb4c7753833_1_119');
+// arch.guardar('Jorgito', 20.58, 'https://docs.google.com/presentation/d/1Q1JQ_rnAnaa-hjeZgSrODZiUeqSvaJ2I_RFptPp1CY0/edit#slide=id.gb4c7753833_1_119');
 
-arch.leer()
+// arch.leer()
+
+// arch.borrar()
