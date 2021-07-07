@@ -31,7 +31,6 @@ app.get('/items', (req, res) => {
         res.send(mensaje)
     })
     numberVisitsItems++;
-    // console.log('hola, soy Dati el mas lindo de todos uwu :3 c: <3');
 })
 
 app.get('/item-random', (req, res) => {
