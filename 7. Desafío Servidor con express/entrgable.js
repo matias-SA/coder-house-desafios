@@ -21,16 +21,23 @@ let arch = new Archivo('productos.txt');
 let numberVisitsItems = 0;
 let numberVisitsItem = 0;
 
-app.get('/items', (req, res) => {
-    arch.leer().then(data => {
+// Tambien podes usar, y te recomiendo que lo hagas, async/await en los endpoints
+// No deja de ser un callback así que simplemente le pases el async
+app.get('/items', async (req, res) => {
+    numberVisitsItems++;
+    try {
+        const data = await arch.leer()
         const dataString = JSON.parse(data)
         let mensaje = {
             items: dataString,
             cantidad: dataString.length
         }
+
         res.send(mensaje)
-    })
-    numberVisitsItems++;
+    } catch (error) {
+        console.error(error)
+        res.status(500).send("Ocurrio un error")
+    }
 })
 
 app.get('/item-random', (req, res) => {
