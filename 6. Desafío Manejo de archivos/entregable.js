@@ -16,8 +16,12 @@ class Archivo {
             let data = await fs.promises.readFile(`./${this.nameArch}`, 'utf-8');
             let info = JSON.parse(data);
             let id = info.length + 1;
+            /*
+                Al crear un objecto, si el dato lo tenes guardado en una variable con el mismo nombre
+                podes simplificarlos usando el destructuring, fijate como lo hice con title en la linea 24
+            */
             let product = {
-                title: title,
+                title,
                 price: price,
                 thumbnail: thumbnail,
                 id: id
@@ -36,8 +40,10 @@ class Archivo {
     leer = async () => {
         try {
             const data = await fs.promises.readFile(`./${this.nameArch}`, 'utf-8');
+            // En vez de mostrar el JSON en texto plano podes parsearlo así se ve como un objecto en la consola
             console.log(data);
         } catch {
+            // Hacer console.log del array vacio ademas de retornarlo
             return [];
         }
     }
