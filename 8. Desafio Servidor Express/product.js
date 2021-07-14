@@ -1,18 +1,19 @@
 class Product {
-    constructor(title, price, thumbnail, id) {
+    constructor(title, price, thumbnail) {
         this.title = title,
             this.price = price,
-            this.thumbnail = thumbnail,
-            this.id = id
+            this.thumbnail = thumbnail
     }
     productList = [];
+    id = 0;
+
     newProduct(dataProduct) {
         let productsLength = this.productList.length
         let newProduct = {
             title: dataProduct.title,
             price: dataProduct.price,
             thumbnail: dataProduct.thumbnail,
-            id: productsLength + 1
+            id: this.id += 1
         }
         this.productList.push(newProduct);
         return newProduct
@@ -26,12 +27,11 @@ class Product {
         return this.productList
     }
     getProduct(id) {
-        let productsLength = this.productList.length;
-        if (id > productsLength) {
+        let productFound = this.productList.find(product => product.id == id)
+        if (productFound == undefined) {
             return { error: 'producto no encontrado' }
         }
-        return this.productList[id - 1]
-
+        return productFound
     }
 }
 module.exports = new Product;
