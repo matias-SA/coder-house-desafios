@@ -4,38 +4,7 @@ class Product {
             this.price = price,
             this.thumbnail = thumbnail
     }
-    productList = [
-        {
-            "title": "Cosa 1",
-            "price": 256.2,
-            "thumbnail": "www.olaquease.com",
-            "id": 1
-        },
-        {
-            "title": "Cosa 2",
-            "price": 256.2,
-            "thumbnail": "www.olaquease.com",
-            "id": 2
-        },
-        {
-            "title": "Cosa 3",
-            "price": 256.2,
-            "thumbnail": "www.olaquease.com",
-            "id": 3
-        },
-        {
-            "title": "Cosa 4",
-            "price": 256.2,
-            "thumbnail": "www.olaquease.com",
-            "id": 4
-        },
-        {
-            "title": "Cosa 5",
-            "price": 256.2,
-            "thumbnail": "www.olaquease.com",
-            "id": 5
-        }
-    ];
+    productList = [];
     id = 0;
 
     newProduct(dataProduct) {
