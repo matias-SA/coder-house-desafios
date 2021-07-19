@@ -45,15 +45,10 @@ class Product {
         let id = parseInt(idData)
         let productRemoved = this.getProduct(id);
         let indexProduct = this.productList.findIndex(product => product.id === id);
-        console.log(indexProduct);
-        this.productList.splice(indexProduct, 1)
-        return productRemoved
+        return indexProduct == -1 ? { error: "No existe el producto que desea borrar" } : this.productList.splice(indexProduct, 1)
     }
     isListEmpty() {
-        if (this.productList.length > 0) {
-            return true
-        }
-        return false
+        return this.productList.length > 0 ? true : false;
     }
 }
 module.exports = new Product;
