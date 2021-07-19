@@ -32,9 +32,9 @@ routerApi.get('/productos/:id', (req, res) => {
     res.send(product.getProduct(req.params.id))
 });
 
-routerApi.post('/productos/guardar', (req, res) => {
+routerApi.post('/productos/guardar', async (req, res) => {
+    await product.newProduct(req.body)
     res.redirect('/guardar-producto')
-    res.send(product.newProduct(req.body))
 })
 
 routerApi.put('/productos/actualizar/:id', (req, res) => {
