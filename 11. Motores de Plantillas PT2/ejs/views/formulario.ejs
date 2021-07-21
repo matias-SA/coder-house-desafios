@@ -1,0 +1,21 @@
+<%- include('./layouts/index')-%>
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Ingrese un nuevo producto</h3>
+    </div>
+    <div class="panel-body">
+        <form action="/api/productos/guardar" method="POST">
+            <div class="controls controls-row">
+                <input id="title" name="title" type="text" class="form-control placeholder="Nombre del producto">
+            </div>
+            <div class="controls controls-row">
+                <input id="price" name="price" type="number" class="form-control placeholder="Precio del producto">
+            </div>
+            <div class="controls controls-row">
+                <input id="thumbnail" name="thumbnail" type="text" class="form-control placeholder="Link de imagen">
+            </div>
+            <div class="controls">
+                <button type="submit" class="btn btn-primary input-medium pull-right">Enviar</button>
+            </div>
+        </form>
+    </div>

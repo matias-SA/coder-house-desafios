@@ -1,0 +1,25 @@
+<%- include('./layouts/index')-%>
+<div>
+    <h1>Productos</h1>
+    <br>
+    <% if(isProduct){%> 
+            <table class="table table-dark">
+                <tr> 
+                    <th>Producto</th> 
+                    <th>Precio</th> 
+                    <th>Imagen</th>
+                </tr>
+                <% products.forEach(function(product){ %>
+                    <tr> 
+                        <td><%= product.title %></td>
+                        <td><%= product.price %></td>
+                        <td><img src=<%= product.thumbnail %> alt="Imagen" width="70"></td>
+                    </tr>
+                <% }) %>
+            </table>
+        <%}else{%>  
+            <div class="alert alert-primary" role="alert">
+                    <h3>No hay productos</h3>
+            </div>            
+     <% }%>
+</div>
