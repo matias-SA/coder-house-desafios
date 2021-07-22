@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script>
+        var socket = io();
+        var template = Handlebars.compile(`
+            {{# each mensajes }}
+            <p><b>{{ this.socketId }}:</b> {{ this.mensaje }}</p>
+            {{/each}}
+        `)
+
+        function addAllMessages(data) {
+            $("#mensajes").html(template({ mensajes: data.mensajes}))
+        }
+
+        function addNewMessage(data) {
+            console.log(template({ mensajes: data}))
+            $("#mensajes").append(template({ mensajes: data}))
+        }
+
+        function enviarMensaje() {
+            var mensaje = document.getElementById("mensaje").value
+            socket.emit('newMessage', mensaje)
+        }
+
+        socket.on(`allMessages`, function(data) {
+            addAllMessages(data)
+        })
+
+        socket.on('receive newMessage', function(data) {
+            console.log(data)
+            addNewMessage(data)
+        })
+        </script>
+    </head>
+    <body>
+        <h2>Mensajes</h2>
+        <input id="mensaje" type="text"/> <button onclick="enviarMensaje()">Enviar</button>
+        <div id="mensajes"></div>
+    </body>
+</html>
