@@ -1,14 +1,22 @@
 const express = require("express");
-const app = express();
 const product = require('./api/product');
 const handlebars = require('express-handlebars')
-const http = require('http').Server(app);
+const http = require('http');
+const socketio = require('socket.io')
 
-// le pasamos la constante http a socket.io
-const io = require('socket.io')(http);
+const app = express();
+
+// Almacenamos el server http en una constante
+const server = http.createServer(app);
+// Usamos el sockectio con el server http
+const io = socketio(server);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Usamos los express static para cargar el javascript del cliente
+app.use('/public', express.static(__dirname + '/public'))
+
 let routerApi = express.Router()
 
 app.engine(
@@ -48,7 +56,12 @@ app.use('/api', routerApi)
 
 const puerto = 8080;
 
-const server = app.listen(puerto, () => {
+
+// IMPORTANTE:
+// Usamos el server para hacer el .listen() no el app.listen
+// Ya que este es el que va a tener el endpoint '/socket.io/socket.io.js' para usar desde el front
+
+server.listen(puerto, () => {
     console.log(`servidor escuchando en http://localhost:${puerto}`);
 });
 
