@@ -30,6 +30,8 @@ app.engine(
 app.set("view engine", "hbs");
 app.set("views", "./views");
 
+// HTTP endpoints
+
 app.get('/', (req, res) => {
     res.render('vista', { products: product.getProductList, isListEmpty: product.isListEmpty() })
 })
@@ -42,16 +44,25 @@ routerApi.get('/productos/:id', (req, res) => {
     res.send(product.getProduct(req.params.id))
 });
 
+// Socket events
+
 io.on('connect', socket => {
     console.log('usuario conectado');
     socket.emit('mi mensaje', 'este es mi mensaje desde el servidor');
 
     // recibo un evento del cliente, con su correspondiente dato
-    socket.on('notificacion', data => {
+    socket.on('notification', data => {
         console.log(data);
+        // Si el usuario escribio Hola, se responde con un socket el saludo
+        if (data.message == 'Hola') {
+            socket.emit('response', {message: 'Hola, como estas?'})
+        }
     });
 });
 
+
+
+// -------------------
 app.use('/api', routerApi)
 
 const puerto = 8080;
