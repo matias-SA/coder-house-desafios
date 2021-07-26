@@ -1,24 +1,21 @@
 // inicializamos la conexion
 const socket = io.connect();
-
-// recibo desde el servidor un mensaje
-socket.on('mi mensaje', data => {
-    alert(data);
-    socket.emit('notificacion', 'mensaje recibido exitosamente en el cliente');
-});
-socket.on('response', data => {
-    console.log('El servidor respondio el saludo')
-    console.log(data)
+socket.on('products list', data => {
+    console.log("products list", data)
 })
-
-const $notification = document.getElementById('notification')
-const $sendNotification = document.getElementById('send-notification')
+const $titleData = document.getElementById('title')
+const $priceData = document.getElementById('price')
+const $thumbnailData = document.getElementById('thumbnail')
+const $addList = document.getElementById('addList')
 
 // Cuando el usuario haga click en el boton se envia el socket con el mensaje del input
 const sendNotification = () => {
-    const message = $notification.value;
-
-    socket.emit('notification', {message})
+    const data = {
+        title: $titleData.value,
+        price: $priceData.value,
+        thumbnail: $thumbnailData.value
+    }
+    socket.emit('notification', data)
 }
 
-$sendNotification.addEventListener('click', sendNotification)
+$addList.addEventListener('click', sendNotification)

@@ -47,16 +47,12 @@ routerApi.get('/productos/:id', (req, res) => {
 // Socket events
 
 io.on('connect', socket => {
-    console.log('usuario conectado');
-    socket.emit('mi mensaje', 'este es mi mensaje desde el servidor');
+    socket.emit('products list', product.productList);
 
     // recibo un evento del cliente, con su correspondiente dato
     socket.on('notification', data => {
+        product.newProduct(data)
         console.log(data);
-        // Si el usuario escribio Hola, se responde con un socket el saludo
-        if (data.message == 'Hola') {
-            socket.emit('response', {message: 'Hola, como estas?'})
-        }
     });
 });
 
