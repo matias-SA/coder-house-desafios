@@ -33,7 +33,7 @@ app.set("views", "./views");
 // HTTP endpoints
 
 app.get('/', (req, res) => {
-    res.render('vista', { products: product.getProductList, isListEmpty: product.isListEmpty() })
+    res.render('vista', { isListEmpty: product.isListEmpty() })
 })
 
 routerApi.get('/productos', (req, res) => {
@@ -50,13 +50,13 @@ io.on('connect', socket => {
     socket.emit('products list', product.productList);
 
     // recibo un evento del cliente, con su correspondiente dato
-    socket.on('notification', data => {
+    socket.on('addNewProduct', data => {
         product.newProduct(data)
         console.log(data);
+        io.sockets.emit('productData', { products: product.productList, isProduct: product.isListEmpty() })
     });
+
 });
-
-
 
 // -------------------
 app.use('/api', routerApi)

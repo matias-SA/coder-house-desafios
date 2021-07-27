@@ -1,47 +1,47 @@
 <div class="jumbotron">
     <h1>Guardar Producto</h1>
     <div class="container">
-        <div>
-            <form id="formData">
-                <div class="mb-3">
-                    <label for="title" class="form-label">Email address</label>
-                    <input id="title" name="title" type="text" class="form-control" placeholder="Nombre del producto">
-                </div>
-                <div class="mb-3">
-                    <label for="price" class="form-label">Email address</label>
-                    <input id="price" name="price" type="number" class="form-control" placeholder="Precio del producto">
-                </div>
-                <div class="mb-3">
-                    <label for="thumbnail" class="form-label">Email address</label>
-                    <input id="thumbnail" name="thumbnail" type="text" class="form-control" placeholder="Link de imagen">
-                </div>
-                <div class="controls">
-                    <button id="addList" class="btn btn-primary input-medium pull-right">Enviar</button>
-                </div>
-            </form>
-        </div>
+        <section id="formData">
+            <div class="mb-3">
+                <label for="title" class="form-label">Email address</label>
+                <input id="title" name="title" type="text" class="form-control" placeholder="Nombre del producto">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Email address</label>
+                <input id="price" name="price" type="number" class="form-control" placeholder="Precio del producto">
+            </div>
+            <div class="mb-3">
+                <label for="thumbnail" class="form-label">Email address</label>
+                <input id="thumbnail" name="thumbnail" type="text" class="form-control" placeholder="Link de imagen">
+            </div>
+            <div class="controls">
+                <button id="addList" class="btn btn-primary input-medium pull-right">Enviar</button>
+            </div>
+        </section>
     </div>
     <br>
-    {{#if isListEmpty}}
-    <div class="table-responsive">
-        <table class="table table-dark">
-            <tr>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Foto</th>
-            </tr>
-            {{#each products}}
-            <tr>
-                <td>{{this.title}}</td>
-                <td>${{this.price}}</td>
-                <td><img width="50" src={{this.thumbnail}} alt="not found"></td>
-            </tr>
-            {{/each}}
-        </table>
+    <div id="table">
+        {{!-- {{#if isListEmpty}}
+        <div class="table-responsive">
+            <table class="table table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Foto</th>
+                </tr>
+                {{#each products}}
+                <tr>
+                    <td>{{this.title}}</td>
+                    <td>${{this.price}}</td>
+                    <td><img width="50" src={{this.thumbnail}} alt="not found"></td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+        {{else}}
+        <h3 class="alert alert-warning">No se encontraron productos</h3>
+        {{/if}} --}}
     </div>
-    {{else}}
-    <h3 class="alert alert-warning">No se encontraron productos</h3>
-    {{/if}}
 </div>
 
 <section>
