@@ -21,7 +21,7 @@ const template = Handlebars.compile(`{{#if isListEmpty}}
         {{#each products}}
         <tr>
             <td>{{this.title}}</td>
-            <td>'$'{{this.price}}</td>
+            <td>´$´{{this.price}}</td>
             <td><img width="50" src={{this.thumbnail}} alt="not found"></td>
         </tr>
         {{/each}}
@@ -33,8 +33,8 @@ const template = Handlebars.compile(`{{#if isListEmpty}}
 `);
 
 socket.on('productData', data => {
-    console.log('hola', data);
     $("#table").html(template({ isListEmpty: data.isProduct, products: data.products }))
+    // console.log($table.innerHTML.);
 })
 
 
