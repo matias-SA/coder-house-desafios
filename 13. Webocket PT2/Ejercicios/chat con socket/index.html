@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script>
+        var socket = io();
+
+        var template = Handlebars.compile(`
+            {{# each mensajes }}
+            <p><b>Username: <br/>{{ this.username }}:</b> <br/> Mensaje: {{ this.mensaje }}</p>
+            {{/each}}
+        `)
+
+        function addAllMessages(data) {
+            $("#mensajes").html(template({ mensajes: data.mensajes}))
+        }
+
+        function addNewMessage(listaMensajes) {
+            $("#mensajes").append(template({ mensajes: listaMensajes}))
+        }
+
+        function enviarMensaje() {
+            var mensaje = document.getElementById("mensaje").value
+            var username = document.getElementById("username").value
+            socket.emit('nuevo-mensaje', {
+                username: username,
+                mensaje: mensaje
+            })
+        }
+
+        socket.on(`todos-los-mensajes`, function(data) {
+            addAllMessages(data)
+        })
+
+        socket.on('recibir nuevoMensaje', function(listaMensajes) {
+            addNewMessage(listaMensajes)
+        })
+        </script>
+    </head>
+    <body>
+        <h2>Mensajes</h2>
+        <div id="mensajes">
+
+        </div>
+        <input id="username" type="text" placeholder="Nombre de usuario" /> 
+        <input id="mensaje" type="text" placeholder="Mensaje a enviar" />
+        <button onclick="enviarMensaje()">Enviar</button>
+    </body>
+</html>
