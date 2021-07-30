@@ -47,7 +47,7 @@ routerApi.get('/productos/:id', (req, res) => {
 // Socket events
 
 io.on('connect', socket => {
-    socket.emit('products list', product.productList);
+    socket.emit('productData', { products: product.productList, isProduct: product.isListEmpty() });
 
     // recibo un evento del cliente, con su correspondiente dato
     socket.on('addNewProduct', data => {
