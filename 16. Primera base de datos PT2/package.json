@@ -1,14 +1,23 @@
 {
-  "name": "trabajo-final",
+  "name": "desafio13",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "handlebars": "^4.7.7",
+    "knex": "^0.95.10",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "socket.io": "^4.1.3"
   }
 }

@@ -1,0 +1,27 @@
+COMANDO PARA CREAR LA BASE DE DATO
+
+    use prueba
+
+COMANDO PARA CREAR COLECCION "items" E INSERTAR DOCUMENTOS
+
+    db.items.insert(
+        {
+            "nombre":"Fideos",
+            "categoria":"Harina",
+            "stock":20,
+        },
+        {
+            "nombre":"Leche",
+            "categoria":"Lacteos",
+            "stock":30,
+        },
+        {
+            "nombre":"Crema",
+            "categoria":"Lacteos",
+            "stock":30,
+        }
+    )
+
+COMANDO PARA LISTAR LOS ITEMS
+    
+    db.items.find()
