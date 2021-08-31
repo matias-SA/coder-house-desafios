@@ -1,4 +1,4 @@
-const PORT = process.env.PORT;
+const { PORT } = require('./config/globals');
 const app = require('./server')
 
 app.listen(PORT, () => {
