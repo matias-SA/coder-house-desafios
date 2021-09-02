@@ -1,13 +1,18 @@
 const db = require('../db/db');
 
 module.exports = class ProductDAO {
-    async createProduct({ title, price, description, thumbnail }) {
-        await db("products").
-            insert({
-                title,
-                price,
-                thumbnail
-            })
+    async createProduct({ title, price, thumbnail }) {
+        try {
+            return db("products").
+                insert({
+                    title,
+                    price,
+                    thumbnail
+                })
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
     async selectProducts() {

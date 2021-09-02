@@ -15,7 +15,6 @@ router.get('/listar/:id', async (req, res) => {
 router.post('/agregar', async (req, res) => {
     const product = new ProductService();
     await product.createProduct(req.body)
-    console.log(req.body);
     res.status(200).json({
         msg: 'Product Created',
         ...req.body

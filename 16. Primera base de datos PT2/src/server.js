@@ -56,4 +56,8 @@ io.on('connect', socket => {
 const productosRouter = require('./routes/products');
 app.use('/productos', productosRouter);
 
+// importo las rutas y las uso con el prefijo /messages
+const messagesRouter = require('./routes/message');
+app.use('/messages', messagesRouter);
+
 module.exports = app;
