@@ -1,0 +1,155 @@
+db.createCollection('mensajes')
+db.createCollection('products')
+
+db.mensajes.insertMany([
+    {
+        "email": "elguerrin@gmail.com",
+        "date": "(03/08/2021 07:25:59)",
+        "message": "Hola, como estas? Puedo tomar tu pedido?"
+    },
+    {
+        "email": "maatias.martin@hotmail.com",
+        "date": "(03/08/2021 10:44:26)",
+        "message": "Hola, todo bien, te queria pedir dos grande de muzza con tres fainas."
+    },
+    { "email": "elguerrin@gmail.com", "date": "(03/08/2021 10:45:16)", "message": "Dale perfecto, direccion?" },
+    { "email": "maatias.martin@hotmail.com", "date": "(03/08/2021 10:45:26)", "message": "Avenida 2048" },
+    {
+        "email": "elguerrin@gmail.com",
+        "date": "(03/08/2021 10:45:27)",
+        "message": "Llevo cambio o pagas justo? "
+    },
+    {
+        "email": "maatias.martin@hotmail.com",
+        "date": "(03/08/2021 10:45:32)",
+        "message": "Trae cambio de 1000."
+    },
+    { "email": "elguerrin@gmail.com", "date": "(03/08/2021 10:45:41)", "message": "Perfecto el total es $600" },
+    {
+        "email": "maatias.martin@hotmail.com",
+        "date": "(04/08/2021 03:52:43)",
+        "message": "Cuanto tienen de demora?"
+    },
+    { "email": "elguerrin@gmail.com", "date": "(04/08/2021 03:52:59)", "message": "Y alrededor de 40min" },
+    { "email": "maatias.martin@hotmail.com", "date": "(04/08/2021 03:54:14)", "message": "Perfecto, los espero" },
+])
+
+db.products.insertMany([
+    {
+        "timestamp": 1628894523528,
+        "title": "Pizza muzzarella",
+        "price": 350,
+        "description": "Esta es una pizza",
+        "code": "ab1",
+        "thumbnail": "https://image.freepik.com/foto-gratis/hora-pizza-sabrosa-pizza-tradicional-casera-receta-italiana_144627-42528.jpg",
+        "stock": 15
+    },
+    {
+        "timestamp": 1628894575678,
+        "title": "Pizza napolitana",
+        "price": 400,
+        "description": "Esta es una pizza",
+        "code": "ac1",
+        "thumbnail": "https://image.freepik.com/foto-gratis/hora-pizza-sabrosa-pizza-tradicional-casera-receta-italiana_144627-42528.jpg",
+        "stock": 15
+    },
+    {
+        "timestamp": 1628894632866,
+        "title": "Pizza capprese",
+        "price": 900,
+        "description": "Esta es una pizza",
+        "code": "ad1",
+        "thumbnail": "https://image.freepik.com/foto-gratis/hora-pizza-sabrosa-pizza-tradicional-casera-receta-italiana_144627-42528.jpg",
+        "stock": 15
+    },
+    {
+        "timestamp": 1628894989333,
+        "title": "Pizza cebolla",
+        "price": 1500,
+        "description": "Esta es una pizza",
+        "code": "ae1",
+        "thumbnail": "https://image.freepik.com/foto-gratis/hora-pizza-sabrosa-pizza-tradicional-casera-receta-italiana_144627-42528.jpg",
+        "stock": 15
+    },
+    {
+        "timestamp": 1628894989333,
+        "title": "Pizza meiana",
+        "price": 1800,
+        "description": "Esta es una pizza",
+        "code": "af1",
+        "thumbnail": "https://image.freepik.com/foto-gratis/hora-pizza-sabrosa-pizza-tradicional-casera-receta-italiana_144627-42528.jpg",
+        "stock": 15
+    },
+    {
+        "timestamp": 1628894989333,
+        "title": "Pizza cuatro quesos",
+        "price": 2450,
+        "description": "Esta es una pizza",
+        "code": "ag1",
+        "thumbnail": "https://image.freepik.com/foto-gratis/hora-pizza-sabrosa-pizza-tradicional-casera-receta-italiana_144627-42528.jpg",
+        "stock": 15
+    },
+    {
+        "timestamp": 1628894989333,
+        "title": "Faina",
+        "price": 2900,
+        "description": "Esta es una pizza",
+        "code": "ah1",
+        "thumbnail": "https://image.freepik.com/foto-gratis/hora-pizza-sabrosa-pizza-tradicional-casera-receta-italiana_144627-42528.jpg",
+        "stock": 15
+    },
+    {
+        "timestamp": 1628894989333,
+        "title": "Pizza de frutas",
+        "price": 3450,
+        "description": "Esta es una pizza",
+        "code": "ai1",
+        "thumbnail": "https://image.freepik.com/foto-gratis/hora-pizza-sabrosa-pizza-tradicional-casera-receta-italiana_144627-42528.jpg",
+        "stock": 15
+    },
+    {
+        "timestamp": 1628894989333,
+        "title": "Pizza de jamon y morrones",
+        "price": 3850,
+        "description": "Esta es una pizza",
+        "code": "aj1",
+        "thumbnail": "https://image.freepik.com/foto-gratis/hora-pizza-sabrosa-pizza-tradicional-casera-receta-italiana_144627-42528.jpg",
+        "stock": 15
+    },
+    {
+        "timestamp": 1628894989333,
+        "title": "Pizza de jamon",
+        "price": 4500,
+        "description": "Esta es una pizza",
+        "code": "ak1",
+        "thumbnail": "https://image.freepik.com/foto-gratis/hora-pizza-sabrosa-pizza-tradicional-casera-receta-italiana_144627-42528.jpg",
+        "stock": 15
+    }
+])
+
+db.mensajes.find({})
+db.products.find({})
+
+db.mensajes.count()
+db.products.count()
+
+db.productos.insertOne({
+    "timestamp": 1628894989333,
+    "title": "Pizza mediana de cebolla",
+    "price": 3900,
+    "description": "Esta es una pizza",
+    "code": "al1",
+    "thumbnail": "https://image.freepik.com/foto-gratis/hora-pizza-sabrosa-pizza-tradicional-casera-receta-italiana_144627-42528.jpg",
+    "stock": 20
+})
+
+db.products.find({ "price": { $lt: 1000 } })
+db.products.find({ "price": { $gte: 1000, $lte: 3000 } })
+db.products.find({ "price": { $gt: 3000 } })
+db.products.find({}, { title: 1 }).sort({ price: 1 }).limit(1).skip(2)
+
+db.products.updateMany({}, { $set: { "stock": 100 } })
+
+db.products.updateMany({ "price": { $gt: 4000 } }, { $set: { "stock": 0 } })
+
+db.productos.deleteMany({ "price": { $lt: 1000 } })
